@@ -7,7 +7,11 @@
 import * as THREE from 'three'
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
 
-let sphere, renderer, scene, camera, controls, material, texture, onResize, onClick
+let sphere, renderer, scene, camera, controls, material, texture, onClick
+let selectedObject = null;
+const raycaster = new THREE.Raycaster();
+const pointer = new THREE.Vector2();
+window.addEventListener("click", onClick);
 
 export default {
   name: 'Choice',
@@ -39,7 +43,11 @@ export default {
 
       let geometry = new THREE.SphereGeometry ( 50, 32, 32 )
       sphere = new THREE.Mesh (geometry)
-      scene.add (sphere)  
+      scene.add (sphere)
+
+      window.addEventListener( 'resize', this.onResize );
+			document.addEventListener( 'pointer', this.onPointer );
+      
     },
     // Sprites 
     spriteBox: function(){
@@ -79,17 +87,33 @@ export default {
       sphere.add( group )
 
     },
-    // Raycaster
-    onClick: function(event){
-      let mouse = new THREE.Vector2(
-        this.mouse.x = ( event.clientX / window.innerWidth ) * 2 - 1,
-	      this.mouse.y = - ( event.clientY / window.innerHeight ) * 2 + 1
-      )
+    // raycaster
+    onPointer: function(event){
+      // if ( selectedObject ) {
+			// 	selectedObject.material.opacity.set( '0.8' );
+			// 	selectedObject = null;
+			// }
+
+			// pointer.x = ( event.clientX / window.innerWidth ) * 2 - 1;
+			// pointer.y = - ( event.clientY / window.innerHeight ) * 2 + 1;
+			// raycaster.setFromCamera( pointer, camera );
+			// const intersects = raycaster.intersectObject( group, true );
+			// if ( intersects.length > 0 ) {
+			// 	const res = intersects.filter( function ( res ) {
+			// 		return res && res.object;
+			// 	} )[ 0 ];
+			// 	if ( res && res.object ) {
+			// 		selectedObject = res.object;
+			// 		selectedObject.material.opacity.set( '1' );
+			// 	}
+			// }
     },
     //animation
     animate: function() {
       requestAnimationFrame(this.animate)
+
       controls.update()
+
       renderer.render(scene, camera)
     },
     //resize
@@ -102,13 +126,11 @@ export default {
   mounted() {
     this.init()
     this.spriteBox()
-    this.onClick()
+    this.onPointer()
     this.animate()
     this.onResize()
   }
 }
-window.addEventListener('resize', onResize)
-window.addEventListener('click', onClick)
 </script>
 
 <style>
