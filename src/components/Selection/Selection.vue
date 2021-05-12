@@ -1,6 +1,6 @@
 <template>
   <div class="section section--selection">
-    <img class="background background--select" src="./images/n1.jpg" alt="Image Norway">
+    <img class="background background--select" src="@/assets//images/n1.jpg" alt="Image Norway">
     <choice />
   </div>
 </template>

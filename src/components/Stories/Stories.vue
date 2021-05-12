@@ -12,7 +12,7 @@
       :direction="'vertical'"
     >
       <swiper-slide class="carousel carousel__slides">
-        <img class="background background--stories" src="./images/nl.jpg" alt="Image 360° Northern Lights">
+        <img class="background background--stories" src="@/assets/images/nl.jpg" alt="Image 360° Northern Lights">
         <div class="stories">
           <h3 class="stories__inline">
             Northern Lights
@@ -26,10 +26,9 @@
           </q>
         </div>
       </swiper-slide>
-      <swiper-slide class="carousel carousel__slides" />
-      <swiper-slide class="carousel carousel__slides" />
-      <swiper-slide class="carousel carousel__slides" />
-      <swiper-slide class="carousel carousel__slides" />
+      <swiper-slide></swiper-slide>
+      <swiper-slide></swiper-slide>
+      <swiper-slide></swiper-slide>
     </swiper>
     <footerNavbar />
   </div>
@@ -71,10 +70,11 @@ export default {
 }
 
 .stories{
+  position: relative;
+  left: 150px;
   display: inline-flex;
   align-items: center;
   width: max-content;
-  margin-left: 150px;
 }
 
 .stories__inline{

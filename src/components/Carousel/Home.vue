@@ -16,23 +16,23 @@
     >
       <swiper-slide class="carousel carousel__slides">
         <title-slide name="Norway" />
-        <img src="./images/n1.jpg" alt="Pictures of Norway">
+        <img src="@/assets/images/n1.jpg" alt="Pictures of Norway">
       </swiper-slide>
       <swiper-slide class="carousel carousel__slides">
         <title-slide name="Iceland" />
-        <img src="./images/i1.jpg" alt="Pictures of Iceland">
+        <img src="@/assets/images/i1.jpg" alt="Pictures of Iceland">
       </swiper-slide>
       <swiper-slide class="carousel carousel__slides">
         <title-slide name="New Zealand" />
-        <img src="./images/nz1.jpg" alt="Pictures of New Zealand">
+        <img src="@/assets/images/nz1.jpg" alt="Pictures of New Zealand">
       </swiper-slide>
     </swiper>
   </div>
 </template>
 
 <script>
-import { Howl,Howler } from 'howler'
-import { onMounted, ref } from 'vue'
+import { Howl } from 'howler'
+import { onMounted } from 'vue'
 import SwiperCore, { Navigation, Autoplay, A11y } from 'swiper'
 import { Swiper, SwiperSlide } from 'swiper/vue'
 import 'swiper/swiper.scss'
@@ -50,71 +50,27 @@ export default {
   },
   setup () {
     console.log('setup')
-    let btnAudio = ref('')
-    console.log(btnAudio)
-    console.log(btnAudio.value)
+    // let btnAudio = ref('')
 
-
-    const mySound = () =>{
-      console.log('mySound')
+    const mySound = () => {
       const sound = new Howl({
-        src: ['https://res.cloudinary.com/n3pu/video/upload/v1571849541/80s_vibe.mp3'],
-        // autoplay: true,
-        // muted: true,
-        // loop: true,
-        // volume: 0.5,
-        // onend: function() {
-        //   console.log('Finished!');
-        // }
-      });
-      console.log(sound)
+        src: ['./audio/a1.mp3'],
+        loop: true,
+        volume: 0.5
+      })
       sound.play()
-      // const myAudio = new Audio('/assets/audio/a1.mp3').play()
-      // console.log(myAudio)
-      // if (myAudio !== undefined) {
-      //   myAudio.then(function() {
-      //     console.log('playing') 
-      //   }).catch(function(error) {
-      //     console.log('error')
-      //   })
-      // }
     }
 
-    onMounted( () => {
+    onMounted(() => {
       console.clear()
-      console.log('____OnMounted!_____')
-      
     })
-    return{
-      btnAudio,
+    return {
+      // btnAudio,
       mySound
     }
   }
 }
-//   mounted () {
-//     console.log('____Mounted_____')
-//     myAudio = new Howl({
-//       src: ['./audio/a1.mp3'],
-//       html5: true,
-//       loop: true,
-//       volume: 1
-//     })
 
-//     console.log(myAudio)
-//   },
-//   methods: {
-//     let myAudio = '',
-//     mySound(){
-//       console.log(this)
-//       if(this.mySound = false) {
-//         myAudio.play()
-//         this.mySound = true
-//       }else {
-//         myAudio.pause()
-//         this.mySound = false
-//       }
-//     }
-//   }
 </script>
 
 <style lang="scss">
