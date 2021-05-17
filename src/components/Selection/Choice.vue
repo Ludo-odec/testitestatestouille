@@ -95,7 +95,6 @@ export default {
         let planeB = new THREE.Sprite(materialB);
         planeB.scale.set(4, 1, 1)
         planeB.position.set(2, 0,-5)
-        
 
         let planeC = new THREE.Sprite(materialC);
         planeC.scale.set(4, 1, 1)
@@ -152,7 +151,7 @@ export default {
 			const intersects = raycaster.intersectObject( this.group, true )
 			if ( intersects.length > 0 ) {
         selectedObject.material.color.set( '#000' )
-        window.location = this.href('/');
+        location.href = 'https://memory-box-alpha.vercel.app/Stories';
 			}
     },
 
