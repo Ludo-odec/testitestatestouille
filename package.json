@@ -10,12 +10,12 @@
   "dependencies": {
     "@vue/cli": "^4.5.12",
     "core-js": "^3.6.5",
-    "howler": "^2.2.1",
     "sass": "^1.32.12",
     "sass-loader": "^8.0.2",
     "swiper": "^6.5.9",
     "three": "^0.128.0",
-    "vue": "^3.0.0"
+    "vue": "^3.0.0",
+    "vue-router": "^4.0.8"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.5.0",

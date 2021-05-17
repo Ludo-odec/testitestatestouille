@@ -7,11 +7,13 @@
 import * as THREE from 'three'
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
 
-let sphere, renderer, scene, camera, controls, material, texture, onClick
+let sphere, renderer, scene, camera
+let materialA, materialB, materialC, materialD, materialE, materialF
+let textureA, textureB, textureC, textureD, textureE, textureF
+
 let selectedObject = null;
-const raycaster = new THREE.Raycaster();
-const pointer = new THREE.Vector2();
-window.addEventListener("click", onClick);
+let raycaster = new THREE.Raycaster();
+let pointer = new THREE.Vector2();
 
 export default {
   name: 'Choice',
@@ -26,118 +28,154 @@ export default {
       canvaChoice.appendChild(renderer.domElement)
 
       //scene & controls
-      scene = new THREE.Scene(canvaChoice)
+      scene = new THREE.Scene()
       camera = new THREE.PerspectiveCamera(
         75,
         window.innerWidth / window.innerHeight,
         0.1,
         100
       )
-      controls = new OrbitControls(camera, renderer.domElement)
-      controls.rotateSpeed = 0.1
-      controls.autoRotateSpeed = 0.8;
-      controls.enableZoom = false
-      controls.autoRotate = true
+      this.controls = new OrbitControls(camera, renderer.domElement)
+      this.controls.rotateSpeed = 0.1
+      this.controls.autoRotateSpeed = 0.7;
+      this.controls.enableZoom = false
+      this.controls.autoRotate = true
       camera.position.set( 1, 0, 10 )
-      controls.update()
+      this.controls.update()
 
       let geometry = new THREE.SphereGeometry ( 50, 32, 32 )
       sphere = new THREE.Mesh (geometry)
       scene.add (sphere)
-
-      window.addEventListener( 'resize', this.onResize );
-			document.addEventListener( 'pointer', this.onPointer );
       
     },
-    // Sprites 
-    spriteBox: function(){
-      texture = new THREE.TextureLoader().load(require('@/assets/images/NL.png'))
-      material = new THREE.SpriteMaterial({ 
-        map: texture,
-        opacity:0.8
-      })
 
-      const planeA = new THREE.Sprite(material);
-      planeA.scale.set(4, 1, 1)
-      planeA.position.set(10, 5,-2)
+    addSprite: function() {
+         // materials
+        textureA = new THREE.TextureLoader().load(require('@/assets/images/sprites/G.png'))
+        materialA = new THREE.SpriteMaterial({ 
+          map: textureA,
+          color: '#999'
+        })
 
-      const planeB = new THREE.Sprite(material);
-      planeB.scale.set(4, 1, 1)
-      planeB.position.set(1, 0,-5)
+        textureB = new THREE.TextureLoader().load(require('@/assets/images/sprites/NL.png'))
+        materialB = new THREE.SpriteMaterial({ 
+          map: textureB,
+          color: '#999'
+        })
 
-      const planeC = new THREE.Sprite(material);
-      planeC.scale.set(4, 1, 1)
-      planeC.position.set(6, -5,-1)
+        textureC = new THREE.TextureLoader().load(require('@/assets/images/sprites/SD.png'))
+        materialC = new THREE.SpriteMaterial({ 
+          map: textureC,
+          color: '#999'
+        })
 
-      const planeD = new THREE.Sprite(material);
-      planeD.scale.set(4, 1, 1)
-      planeD.position.set(-10, 4,-3)
+        textureD = new THREE.TextureLoader().load(require('@/assets/images/sprites/C.png'))
+        materialD = new THREE.SpriteMaterial({ 
+          map: textureD,
+          color: '#999'
+        })
 
-      const planeE = new THREE.Sprite(material);
-      planeE.scale.set(4, 1, 1)
-      planeE.position.set(-8, -6,-4)
+        textureE = new THREE.TextureLoader().load(require('@/assets/images/sprites/F.png'))
+        materialE = new THREE.SpriteMaterial({ 
+          map: textureE,
+          color: '#999'
+        })
 
-      const group = new THREE.Group();
-      group.add( planeA )
-      group.add( planeB )
-      group.add( planeC )
-      group.add( planeD )
-      group.add( planeE )
+        textureF = new THREE.TextureLoader().load(require('@/assets/images/sprites/B.png'))
+        materialF = new THREE.SpriteMaterial({ 
+          map: textureF,
+          color: '#999'
+        })
 
-      sphere.add( group )
+        // sprites
+        let planeA = new THREE.Sprite(materialA);
+        planeA.scale.set(4, 1, 1)
+        planeA.position.set(12, 5,-1)
 
-    },
-    // raycaster
+        let planeB = new THREE.Sprite(materialB);
+        planeB.scale.set(4, 1, 1)
+        planeB.position.set(2, 0,-5)
+        
+
+        let planeC = new THREE.Sprite(materialC);
+        planeC.scale.set(4, 1, 1)
+        planeC.position.set(10, -5,-4)
+
+        let planeD = new THREE.Sprite(materialD);
+        planeD.scale.set(2, 1, 1)
+        planeD.position.set(-8, 6,-3)
+
+        let planeE = new THREE.Sprite(materialE);
+        planeE.scale.set(2, 1, 1)
+        planeE.position.set(-9, -6,-4)
+
+        let planeF = new THREE.Sprite(materialF);
+        planeF.scale.set(4, 1, 1)
+        planeF.position.set(-16, -1,-4)
+
+        this.group = new THREE.Group();
+        this.group.add( planeA )
+        this.group.add( planeB )
+        this.group.add( planeC )
+        this.group.add( planeD )
+        this.group.add( planeE )
+        this.group.add( planeF )
+
+        sphere.add( this.group )
+      },
+
     onPointer: function(event){
-      // if ( selectedObject ) {
-			// 	selectedObject.material.opacity.set( '0.8' );
-			// 	selectedObject = null;
-			// }
-
-			// pointer.x = ( event.clientX / window.innerWidth ) * 2 - 1;
-			// pointer.y = - ( event.clientY / window.innerHeight ) * 2 + 1;
-			// raycaster.setFromCamera( pointer, camera );
-			// const intersects = raycaster.intersectObject( group, true );
-			// if ( intersects.length > 0 ) {
-			// 	const res = intersects.filter( function ( res ) {
-			// 		return res && res.object;
-			// 	} )[ 0 ];
-			// 	if ( res && res.object ) {
-			// 		selectedObject = res.object;
-			// 		selectedObject.material.opacity.set( '1' );
-			// 	}
-			// }
+      // console.log(event)
+      if ( selectedObject ) {
+        selectedObject.material.color.set( '#999' )
+				selectedObject = null
+        this.controls.autoRotate = true
+			}
+			pointer.x = ( event.clientX / window.innerWidth ) * 2 - 1
+			pointer.y = - ( event.clientY / window.innerHeight ) * 2 + 1
+			raycaster.setFromCamera( pointer, camera )
+			const intersects = raycaster.intersectObject( this.group, true )
+			if ( intersects.length > 0 ) {
+				const res = intersects.filter( function ( res ) {
+					return res && res.object
+				} )[ 0 ]
+				if ( res && res.object ) {
+					selectedObject = res.object
+					selectedObject.material.color.set( '#fff' )
+          this.controls.autoRotate = false
+				}
+			}
     },
-    //animation
+
+    onClick: function(event){
+			raycaster.setFromCamera( pointer, camera )
+			const intersects = raycaster.intersectObject( this.group, true )
+			if ( intersects.length > 0 ) {
+        selectedObject.material.color.set( '#000' )
+        window.alert("Go to Northern Lights ☺");
+			}
+    },
+
     animate: function() {
       requestAnimationFrame(this.animate)
-
-      controls.update()
-
+      this.controls.update()
       renderer.render(scene, camera)
     },
-    //resize
+
     onResize: function() {
       renderer.setSize(window.innerWidth, window.innerHeight)
       camera.aspect = window.innerWidth / window.innerHeight
       camera.updateProjectionMatrix()
     }
   },
+
   mounted() {
     this.init()
-    this.spriteBox()
-    this.onPointer()
+    this.addSprite()
     this.animate()
     this.onResize()
+    document.addEventListener('pointermove', this.onPointer)
+    document.addEventListener('click', this.onClick)
   }
 }
 </script>
-
-<style>
-  .myChoice {
-    width: fit-content;
-    height: fit-content;
-    border-radius: none;
-  }
-</style>
-

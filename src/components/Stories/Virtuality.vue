@@ -1,5 +1,5 @@
 <template>
-  <div class="myCanva" />
+  <div class="myCanvas" />
 </template>
 
 <script>
@@ -8,13 +8,13 @@
 import * as THREE from 'three'
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
 
-let sphere, renderer, scene, camera, controls, onResize
+let sphere, renderer, scene, camera, controls
 
 export default {
   name: 'Virtuality',
   methods: {
     init: function () {
-      let canvaVirtuality = document.querySelector( '.myCanva' )
+      let canvaVirtuality = document.querySelector( '.myCanvas' )
 
       //render
       renderer = new THREE.WebGLRenderer ()
@@ -22,7 +22,7 @@ export default {
       canvaVirtuality.appendChild (renderer.domElement)
 
       //scene & controls
-      scene = new THREE.Scene (canvaVirtuality)
+      scene = new THREE.Scene ()
       camera = new THREE.PerspectiveCamera(
         75,
         window.innerWidth / window.innerHeight,
@@ -40,7 +40,7 @@ export default {
       //sphere & texture
       let geometry = new THREE.SphereGeometry ( 50, 32, 32 )
       let textureLoader = new THREE.TextureLoader ()
-      textureLoader.setCrossOrigin ("anonymous")
+      // textureLoader.setCrossOrigin ("anonymous")
       let texture = textureLoader.load (require ("@/assets/images/nl.jpg"))
       texture.wrapS = THREE.RepeatWrapping
       texture.repeat.x = -1
@@ -74,5 +74,4 @@ export default {
     this.onResize()
   }
 }
-window.addEventListener('resize', onResize)
 </script>

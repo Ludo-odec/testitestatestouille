@@ -5,23 +5,22 @@ body{
     font-size: 16px;
     font-weight: 400;
     color: white;
-    background-color: black;
+    background-color: #000;
+    // overflow-y: hidden;
 }
 
 h1, h2{
     display: block;
     margin: 0;
-    font-size: 25.89px;
+    font-size: 41.89px;
     font-weight: 300;
-    text-transform: uppercase;
 }
 
 h1{
-    font-weight: 600;
+    font-weight: 500;
 }
 
 h2{
-    font-size: 41.89px;
     letter-spacing: 20px;
     margin-right:-20px;
 }
@@ -40,9 +39,20 @@ q{
     text-align: center;
 }
 
+a{
+    display: flex;
+    justify-content: center;
+    align-items: center;  
+    color: inherit;
+    text-decoration: none;
+}
+
 .section{
     position: relative;
     overflow-x: hidden;
+    &--header{
+        position: fixed;
+    }
 }
 
 .blurred{
@@ -62,6 +72,7 @@ button{
     color: inherit;
     font: inherit;
     transition: ease-out 0.1s;
+    z-index: 999;
     &:hover{
         transform: scale(1.1);
         transition: ease-in 0.3s;
@@ -76,21 +87,27 @@ img{
 }
 
 canvas{
-    border-radius: 999px;
     cursor: grab;
     &:active{
         cursor: grabbing;
     }
 }
 
+.myCanvas canvas{
+    border-radius: 999px;
+    transition: .5s ease;
+}
+
+// .canvas--fullscreen{
+//     border-radius: 0px;
+//     opacity: .4;
+// }
+
 .carousel{
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    &__slides{
-        
-    }
     &--horizontal{
         cursor: pointer;
         &:active{
@@ -98,23 +115,12 @@ canvas{
         }
     }
     &--vertical{
-        justify-content: none;
         width: 100%;
-        overflow-x: scroll;
+    }
+    &__slides{
+        overflow: auto;
     }
 }
-
-.header{
-    position: absolute;
-    top: 40px;
-    left: 0;
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-    height: fit-content;
-    z-index: 999;
-}
-
 
 ::-webkit-scrollbar {
     width: 8px;
