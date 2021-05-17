@@ -9,7 +9,6 @@
         'dynamicBullets': true
       }"
       :direction="'vertical'"
-      
     >
       <swiper-slide class="carousel carousel__slides">
         <img class="background background--stories" src="@/assets/images/nl.jpg" alt="Image 360° Northern Lights">
@@ -52,7 +51,7 @@ export default {
     Virtuality,
     Swiper,
     SwiperSlide
-  },
+  }
 }
 </script>
 

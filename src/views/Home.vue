@@ -5,7 +5,6 @@
       class="carousel carousel--horizontal"
       :slides-per-view="1"
       loop
-      navigation
     >
       <swiper-slide class="carousel carousel__slides">
         <title-slide name="Norway" />
@@ -27,11 +26,11 @@
 import HeaderNavbar from '@/components/HeaderNavbar.vue'
 import TitleSlide from '@/components/Home/TitleSlide.vue'
 
-import SwiperCore, { Navigation, Autoplay, A11y } from 'swiper'
+import SwiperCore, { Navigation } from 'swiper'
 import { Swiper, SwiperSlide } from 'swiper/vue'
 import 'swiper/swiper.scss'
 import 'swiper/components/navigation/navigation.scss'
-SwiperCore.use([Navigation, Autoplay, A11y])
+SwiperCore.use([Navigation])
 
 export default {
   name: 'Home',
