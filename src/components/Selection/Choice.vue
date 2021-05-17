@@ -151,7 +151,7 @@ export default {
 			const intersects = raycaster.intersectObject( this.group, true )
 			if ( intersects.length > 0 ) {
         selectedObject.material.color.set( '#000' )
-        location.href = 'https://memory-box-alpha.vercel.app/Stories';
+        location.pathname = '/Stories';
 			}
     },
 
