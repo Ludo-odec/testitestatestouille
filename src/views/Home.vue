@@ -5,6 +5,7 @@
       class="carousel carousel--horizontal"
       :slides-per-view="1"
       loop
+      Navigation
     >
       <swiper-slide class="carousel carousel__slides">
         <title-slide name="Norway" />
@@ -63,6 +64,7 @@ export default {
 }
 
 .swiper-button {
+  position: absolute;
   z-index: 999;
   &-next{
     margin-right: 40px;
