@@ -26,6 +26,7 @@
           </q>
         </div>
         <footerNavbar />
+        <audio class="myMem1" src="./audio/a1.mp3" />
       </swiper-slide>
     </swiper>
   </div>

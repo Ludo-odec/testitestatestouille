@@ -129,7 +129,7 @@ export default {
       if ( selectedObject ) {
         selectedObject.material.color.set( '#999' )
 				selectedObject = null
-        this.controls.autoRotate = true
+        // this.controls.autoRotate = true
 			}
 			pointer.x = ( event.clientX / window.innerWidth ) * 2 - 1
 			pointer.y = - ( event.clientY / window.innerHeight ) * 2 + 1
@@ -142,7 +142,7 @@ export default {
 				if ( res && res.object ) {
 					selectedObject = res.object
 					selectedObject.material.color.set( '#fff' )
-          this.controls.autoRotate = false
+          // this.controls.autoRotate = false
 				}
 			}
     },
@@ -152,7 +152,7 @@ export default {
 			const intersects = raycaster.intersectObject( this.group, true )
 			if ( intersects.length > 0 ) {
         selectedObject.material.color.set( '#000' )
-        window.alert("Go to Northern Lights ☺");
+        window.location = this.href('/');
 			}
     },
 

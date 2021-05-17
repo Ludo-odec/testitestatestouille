@@ -4,9 +4,6 @@
     <img class="background background--select" src="@/assets/images/n1.jpg" alt="Image Norway">
     <choice />
     <tips />
-    <router-link to="/Stories">
-    <button>next</button>
-    </router-link>
   </div>
 </template>
 

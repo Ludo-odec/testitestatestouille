@@ -19,16 +19,26 @@ export default {
   name: 'FooterNavbar',
   setup () {
     const Story = () => {
+      const myAudio = document.querySelector('.myAudio')
+      const myMem1 = document.querySelector('.myMem1')
+      myMem1.volume = 0.3
+      
       const canvaRadius = document.querySelector('.myCanvas canvas')
       if (!document.fullscreenElement) {
         canvaRadius.style.borderRadius = "0px"
+        myAudio.volume = 0.1
+        myMem1.play()
         canvaRadius.requestFullscreen().catch(err => {
           alert(`Error attempting to enable full-screen mode: ${err.message} (${err.name})`)
         })
       } else {
         document.exitFullscreen()
         canvaRadius.style.borderRadius = "999px"
+        myAudio.volume = 0.3
+        myMem1.pause()
+        myMem1.currentTime = 0
       }
+
     }
     onMounted( () => {
       document.addEventListener('fullscreenchange', (e) =>{
