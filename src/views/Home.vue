@@ -4,6 +4,7 @@
     <swiper
       class="carousel carousel--horizontal"
       :slides-per-view="1"
+      loop
       navigation
     >
       <swiper-slide class="carousel carousel__slides">
@@ -63,6 +64,7 @@ export default {
 }
 
 .swiper-button {
+  z-index: 999;
   &-next{
     margin-right: 40px;
     color: white;
