@@ -1,10 +1,10 @@
 <template>
-  <HeaderNavbar />
+  <header-navbar />
   <div class="section section--home">
     <swiper
       class="carousel carousel--horizontal"
       :slides-per-view="1"
-      loop
+      loop  
       Navigation
     >
       <swiper-slide class="carousel carousel__slides">

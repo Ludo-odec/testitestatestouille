@@ -1,4 +1,5 @@
 <template>
+<header-navbar />
   <div class="section section--selection">
     <img class="background background--select" src="@/assets/images/n1.jpg" alt="Image Norway">
     <choice />
@@ -10,12 +11,15 @@
 </template>
 
 <script>
+
+import HeaderNavbar from '@/components/HeaderNavbar.vue'
 import Choice from '@/components/Selection/Choice.vue'
 import Tips from '@/components/Tips.vue'
 
 export default {
   name: 'Selection',
   components: {
+    HeaderNavbar,
     Choice,
     Tips
   }

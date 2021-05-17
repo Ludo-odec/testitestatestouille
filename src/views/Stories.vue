@@ -1,4 +1,5 @@
 <template>
+  <story-navbar />
   <div class="section section--stories">
     <swiper
       class="carousel carousel--vertical"
@@ -31,6 +32,7 @@
 </template>
 
 <script>
+import StoryNavbar from '@/components/StoryNavbar.vue'
 import FooterNavbar from '@/components/Stories/FooterNavbar.vue'
 import Virtuality from '@/components/Stories/Virtuality.vue'
 
@@ -47,6 +49,7 @@ SwiperCore.use([Pagination])
 export default {
   name: 'Stories',
   components: {
+    StoryNavbar,
     FooterNavbar,
     Virtuality,
     Swiper,
