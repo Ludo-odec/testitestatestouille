@@ -98,11 +98,6 @@ canvas{
     transition: .5s ease;
 }
 
-// .canvas--fullscreen{
-//     border-radius: 0px;
-//     opacity: .4;
-// }
-
 .carousel{
     display: flex;
     justify-content: center;
@@ -118,7 +113,7 @@ canvas{
         width: 100%;
     }
     &__slides{
-        width: 100%;
+        width: 100vw;
         overflow: auto;
     }
 }

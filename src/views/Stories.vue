@@ -27,9 +27,6 @@
         </div>
         <footerNavbar />
       </swiper-slide>
-      <swiper-slide />
-      <swiper-slide />
-      <swiper-slide />
     </swiper>
   </div>
 </template>
