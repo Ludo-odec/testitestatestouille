@@ -21,7 +21,7 @@ export default {
   setup () {
     const mySound = () => {
       const myAudio = document.querySelector('.myAudio')
-      myAudio.volume = 0.3
+      myAudio.volume = 0.1
       return myAudio.paused ? myAudio.play() : myAudio.pause()
     }
     return {
