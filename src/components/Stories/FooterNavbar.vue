@@ -3,7 +3,7 @@
     <p class="footer__nav footer__nav--north">
       69°38'13.3"N
     </p>
-    <button ref="btnBig" class="blurred btn--big" @click="Story" >
+    <button ref="btnBig" class="blurred btn--big" @click="Story">
       Story
     </button>
     <p class="footer__nav footer__nav--east">
@@ -24,23 +24,23 @@ export default {
 
       const canvaRadius = document.querySelector('.myCanvas canvas')
       if (!document.fullscreenElement) {
-        canvaRadius.style.borderRadius = "0px"
+        canvaRadius.style.borderRadius = '0px'
         myMem1.play()
         canvaRadius.requestFullscreen().catch(err => {
           alert(`Error attempting to enable full-screen mode: ${err.message} (${err.name})`)
         })
       } else {
         document.exitFullscreen()
-        canvaRadius.style.borderRadius = "999px"
+        canvaRadius.style.borderRadius = '999px'
         myMem1.paused ? myMem1.play() : myMem1.pause()
         myMem1.currentTime = 0
       }
     }
-    onMounted( () => {
-      document.addEventListener('fullscreenchange', (e) =>{
-        if (!document.fullscreenElement){
-          document.querySelector('.myCanvas canvas').style.borderRadius = "999px"
-        } 
+    onMounted(() => {
+      document.addEventListener('fullscreenchange', (e) => {
+        if (!document.fullscreenElement) {
+          document.querySelector('.myCanvas canvas').style.borderRadius = '999px'
+        }
       })
     })
     return {
