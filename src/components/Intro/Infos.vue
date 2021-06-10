@@ -6,7 +6,7 @@
           Memory Box
         </strong>
       </h1>
-      <router-link to="/Intro2">
+      <router-link to="/brief">
         <button class="cta cta--intro" @click="explore">
           <svg viewBox="0 0 100 100" fill="none">
             <circle

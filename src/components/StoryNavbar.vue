@@ -1,6 +1,6 @@
 <template>
   <div class="section section--header">
-    <router-link to="/Selection">
+    <router-link to="/selection">
       <button class="blurred header__nav header__nav--close" @click="close">
         <svg
           width="16"

@@ -1,6 +1,6 @@
 <template>
   <button v-if="name === 'Norway'" class="blurred titleCountry">
-    <router-link to="/Selection">
+    <router-link to="/selection">
       <h3>
         Norway
       </h3>

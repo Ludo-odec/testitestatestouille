@@ -9,7 +9,7 @@
     >
       <swiper-slide class="carousel carousel__slides">
         <button class="blurred titleCountry">
-          <router-link to="/Selection">
+          <router-link to="/selection">
             <h3>
               Norway
             </h3>
@@ -47,7 +47,7 @@ import 'swiper/components/navigation/navigation.scss'
 SwiperCore.use([Navigation])
 
 export default {
-  name: 'Home',
+  name: 'home',
   components: {
     HeaderNavbar,
     Swiper,

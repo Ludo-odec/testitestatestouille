@@ -1,5 +1,5 @@
 <template>
-  <div class="section section--intro2">
+  <div class="section section--brief">
     <img class="background background--intro" src="@/assets/images/home/n1.jpg" alt="Image Norway">
     <article class="briefing">
       <p>
@@ -19,8 +19,8 @@
         I hope you’ll enjoy my vision of discovery !
       </p>
     </article>
-    <router-link to="/Home" class="skip">
-      <button class="cta cta--intro2" @click="letsGo">
+    <router-link to="/home" class="skip">
+      <button class="cta cta--brief" @click="letsGo">
         Let's go
       </button>
     </router-link>
@@ -30,13 +30,13 @@
 <script>
 
 export default {
-  name: 'Intro2'
+  name: 'brief'
 }
 </script>
 
 <style lang="scss">
 
-.section--intro2{
+.section--brief{
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -61,7 +61,7 @@ export default {
     font-size: 25.89px;
 }
 
-.cta--intro2{
+.cta--brief{
   border: 0.5px solid #fff;
   border-radius: 999px;
 }

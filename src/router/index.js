@@ -22,9 +22,9 @@ const routes = [
     component: () => import('../views/Selection.vue')
   },
   {
-    path: '/story/:id',
-    name: 'story',
-    component: () => import('../views/Story.vue')
+    path: '/stories/:id',
+    name: 'stories',
+    component: () => import('../views/Stories.vue')
   }
 ]
 
