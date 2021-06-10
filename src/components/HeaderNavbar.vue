@@ -27,11 +27,14 @@ export default {
   setup () {
     const mySound = () => {
       const myAudio = document.querySelector('.myAudio')
-      // const myKeyframes = document.querySelector('.header__nav--sound span')
-      // const oui = myKeyframes.style.animationPlayState = 'paused'
-      // const non = myKeyframes.style.animationPlayState = 'running'
+      // const myKeyframes = document.querySelectorAll('.header__nav--sound span')
+      // const oui = myAudio.play()
       myAudio.volume = 0.1
-      // return myAudio.paused ? oui : non
+      // if (forEach in myKeyframes) {
+      //   myKeyframes.style.animationPlayState = 'running'
+      // } else {
+      //   myKeyframes.style.animationPlayState = 'initial'
+      // }
       return myAudio.paused ? myAudio.play() : myAudio.pause()
     }
     return {

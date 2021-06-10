@@ -126,6 +126,7 @@ button{
             border-radius: 10px;
             background-color: white;
             animation: pulse 1s linear infinite;
+            animation-play-state: running;
             &:nth-child(1){
                 animation-delay: 0.5s;
             }
