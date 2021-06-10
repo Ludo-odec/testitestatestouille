@@ -3,28 +3,28 @@ import { createRouter, createWebHistory } from 'vue-router'
 const routes = [
   {
     path: '/',
-    name: 'Intro',
-    component: () => import('../views/intro.vue')
+    name: 'intro',
+    component: () => import('../views/Intro.vue')
   },
   {
-    path: '/intro2',
-    name: 'Intro2',
-    component: () => import('../views/intro2.vue')
+    path: '/brief',
+    name: 'brief',
+    component: () => import('../views/Brief.vue')
   },
   {
     path: '/home',
-    name: 'Home',
-    component: () => import('../views/home.vue')
+    name: 'home',
+    component: () => import('../views/Home.vue')
   },
   {
     path: '/selection',
-    name: 'Selection',
-    component: () => import('../views/selection.vue')
+    name: 'selection',
+    component: () => import('../views/Selection.vue')
   },
   {
     path: '/story/:id',
-    name: 'Story',
-    component: () => import('../views/story.vue')
+    name: 'story',
+    component: () => import('../views/Story.vue')
   }
 ]
 
