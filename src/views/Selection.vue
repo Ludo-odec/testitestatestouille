@@ -3,7 +3,7 @@
     <header-navbar />
     <ul class="memories">
       <li v-for="story in stories" :key="story" class="memory">
-        <router-link :to="{ name: 'stories', params: {id: story.id} }" class="memory__el">
+        <router-link :to="{name : 'stories', params: {id: story.id} }" class="memory__el">
           <p class="coordonates">
             <span>{{ story.north }}</span>
             <span>{{ story.east }}</span>
