@@ -1,5 +1,6 @@
 <template>
   <div class="section section--intro">
+    <img class="background background--intro" src="@/assets/images/home/n1.jpg" alt="Image Norway">
     <infos />
   </div>
 </template>
@@ -16,11 +17,12 @@ export default {
 </script>
 
 <style lang="scss">
+
 .section--intro{
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background-color: #030303;
 }
+
 </style>

@@ -1,50 +1,40 @@
 <template>
   <div class="footer">
-    <p class="footer__nav footer__nav--north">
-      69°38'13.3"N
-    </p>
-    <button ref="btnBig" class="blurred btn--big" @click="Story">
+    <a class="footer__nav footer__nav--north" target="_blank" :href="story.map">
+      {{ story.north }}
+    </a>
+    <button ref="btnBig" class="blurred btn--big" @click="handleOpenFullscreen">
       Story
     </button>
-    <p class="footer__nav footer__nav--east">
-      19°00'46.5"E
-    </p>
+    <a class="footer__nav footer__nav--east" target="_blank" :href="story.map">
+      {{ story.east }}
+    </a>
   </div>
 </template>
 
 <script>
-import { onMounted } from 'vue'
+import oui from '@/Stories.js'
 
 export default {
   name: 'FooterNavbar',
-  setup () {
-    const Story = () => {
-      const myMem1 = document.querySelector('.myMem1')
-      myMem1.volume = 0.8
-
-      const canvaRadius = document.querySelector('.myCanvas canvas')
-      if (!document.fullscreenElement) {
-        canvaRadius.style.borderRadius = '0px'
-        myMem1.play()
-        canvaRadius.requestFullscreen().catch(err => {
-          alert(`Error attempting to enable full-screen mode: ${err.message} (${err.name})`)
-        })
-      } else {
-        document.exitFullscreen()
-        canvaRadius.style.borderRadius = '999px'
-        myMem1.paused ? myMem1.play() : myMem1.pause()
-        myMem1.currentTime = 0
-      }
+  props: {
+    story: {
+      type: Object,
+      required: true
     }
-    onMounted(() => {
-      document.addEventListener('fullscreenchange', (e) => {
-        if (!document.fullscreenElement) {
-          document.querySelector('.myCanvas canvas').style.borderRadius = '999px'
-        }
-      })
-    })
+  },
+  emits: ['open-fullscreen'],
+  setup (props, { emit }) {
+    const handleOpenFullscreen = () => {
+      emit('open-fullscreen')
+    }
     return {
-      Story
+      handleOpenFullscreen
+    }
+  },
+  data () {
+    return {
+      stories: oui.stories
     }
   }
 }
@@ -52,18 +42,20 @@ export default {
 
 <style lang="scss">
 .footer{
-    position: sticky;
-    left: 0.1px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
     width: 100%;
     height: fit-content;
     margin-bottom: 40px;
     display: flex;
     justify-content: space-between;
     align-self: flex-end;
-    z-index: 998;
+    z-index: 999;
 }
 
 .footer__nav{
+  cursor: pointer;
     &--north{
         margin-left: 40px;
     }

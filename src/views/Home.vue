@@ -1,23 +1,37 @@
 <template>
-  <header-navbar />
   <div class="section section--home">
+    <header-navbar />
     <swiper
       class="carousel carousel--horizontal"
       :slides-per-view="1"
-      loop  
-      Navigation
+      loop
+      navigation
     >
       <swiper-slide class="carousel carousel__slides">
-        <title-slide name="Norway" />
-        <img src="@/assets/images/n1.jpg" alt="Pictures of Norway">
+        <button class="blurred titleCountry">
+          <router-link to="/Selection">
+            <h3>
+              Norway
+            </h3>
+          </router-link>
+        </button>
+        <img src="@/assets/images/home/n1.jpg" alt="Pictures of Norway">
       </swiper-slide>
       <swiper-slide class="carousel carousel__slides">
-        <title-slide name="Iceland" @click="myIceland" />
-        <img src="@/assets/images/i1.jpg" alt="Pictures of Iceland">
+        <button class="blurred titleCountry titleCountry--NA">
+          <h3>
+            Iceland
+          </h3>
+        </button>
+        <img src="@/assets/images/home/i1.jpg" alt="Pictures of Iceland">
       </swiper-slide>
       <swiper-slide class="carousel carousel__slides">
-        <title-slide name="New Zealand" @click="myNZ" />
-        <img src="@/assets/images/nz1.jpg" alt="Pictures of New Zealand">
+        <button class="blurred titleCountry titleCountry--NA">
+          <h3>
+            New Zealand
+          </h3>
+        </button>
+        <img src="@/assets/images/home/nz1.jpg" alt="Pictures of New Zealand">
       </swiper-slide>
     </swiper>
   </div>
@@ -25,7 +39,6 @@
 
 <script>
 import HeaderNavbar from '@/components/HeaderNavbar.vue'
-import TitleSlide from '@/components/Home/TitleSlide.vue'
 
 import SwiperCore, { Navigation } from 'swiper'
 import { Swiper, SwiperSlide } from 'swiper/vue'
@@ -38,20 +51,7 @@ export default {
   components: {
     HeaderNavbar,
     Swiper,
-    SwiperSlide,
-    TitleSlide
-  },
-  setup () {
-    const myIceland = () => {
-      window.alert('In construction, see ya later ☺')
-    }
-    const myNZ = () => {
-      window.alert('In construction, see ya later ☺')
-    }
-    return {
-      myIceland,
-      myNZ
-    }
+    SwiperSlide
   }
 }
 
@@ -63,30 +63,30 @@ export default {
   justify-content: center;
 }
 
-.swiper-button {
-  position: absolute;
-  z-index: 999;
-  &-next{
-    margin-right: 40px;
-    color: white;
-    transition: 0.1s ease-out;
-    &:hover{
-      transform: scale(1.1);
-      transition: 0.3s ease-in;
-    }
-  }
-  &-prev{
-    margin-left: 40px;
-    color: white;
-    transition: 0.1s ease-out;
-    &:hover{
-      transform: scale(1.1);
-      transition: 0.3s ease-in;
-    }
-  }
-}
-
 .header__nav--logo{
   margin-left: 40px;
 }
+
+.titleCountry {
+    position: absolute;
+    padding: 0 30px;
+    cursor: pointer;
+    width: fit-content;
+    height: fit-content;
+    z-index: 999;
+
+    &--NA{
+      cursor: not-allowed;
+    }
+}
+
+.swiper-button{
+  &-next{
+    right: 40px;
+  }
+  &-prev{
+    left: 40px;
+  }
+}
+
 </style>

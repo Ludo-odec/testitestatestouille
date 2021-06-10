@@ -4,22 +4,27 @@ const routes = [
   {
     path: '/',
     name: 'Intro',
-    component: () => import('../views/Intro.vue')
+    component: () => import('../views/intro.vue')
   },
   {
-    path: '/Home',
+    path: '/intro2',
+    name: 'Intro2',
+    component: () => import('../views/intro2.vue')
+  },
+  {
+    path: '/home',
     name: 'Home',
-    component: () => import('../views/Home.vue')
+    component: () => import('../views/home.vue')
   },
   {
-    path: '/Selection',
+    path: '/selection',
     name: 'Selection',
-    component: () => import('../views/Selection.vue')
+    component: () => import('../views/selection.vue')
   },
   {
-    path: '/Stories',
-    name: 'Stories',
-    component: () => import('../views/Stories.vue')
+    path: '/story/:id',
+    name: 'Story',
+    component: () => import('../views/story.vue')
   }
 ]
 

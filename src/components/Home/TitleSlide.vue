@@ -1,20 +1,20 @@
 <template>
   <button v-if="name === 'Norway'" class="blurred titleCountry">
-    <h2>
-      <router-link to="/Selection">
+    <router-link to="/Selection">
+      <h3>
         Norway
-      </router-link>
-    </h2>
+      </h3>
+    </router-link>
   </button>
-  <button v-else-if="name === 'Iceland'" class="blurred titleCountry">
-    <h2>
+  <button v-else-if="name === 'Iceland'" class="blurred titleCountry titleCountry--NA">
+    <h3>
       Iceland
-    </h2>
+    </h3>
   </button>
-  <button v-else-if="name === 'New Zealand'" class="blurred titleCountry">
-    <h2>
+  <button v-else-if="name === 'New Zealand'" class="blurred titleCountry titleCountry--NA">
+    <h3>
       New Zealand
-    </h2>
+    </h3>
   </button>
 </template>
 
@@ -26,7 +26,7 @@ export default {
 
 </script>
 
-<style>
+<style lang="scss">
 .titleCountry {
     position: absolute;
     padding: 0 30px;
@@ -34,5 +34,9 @@ export default {
     width: fit-content;
     height: fit-content;
     z-index: 999;
+
+    &--NA{
+      cursor: not-allowed;
+    }
 }
 </style>
