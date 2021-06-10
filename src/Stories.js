@@ -9,7 +9,7 @@ export default [
     background: '/images/selections/6.jpg',
     description: 'Picture of Sled Dogs',
     virtual: '/images/stories/t1.jpg',
-    audio: '/audio/sd1.mp3',
+    audio: '/audio/sd1.wav',
     text: 'A beautiful and intimate adventure in the icy lands of nature that warms my soul. A singular journey in the company of sled dogs.',
     id: 'sled-dogs',
     events: [
@@ -36,7 +36,7 @@ export default [
     background: '/images/selections/5.jpg',
     description: 'Picture of Northern Lights',
     virtual: '/images/stories/nl.jpg',
-    audio: '/audio/nl1.mp3',
+    audio: '/audio/nl1.wav',
     text: 'After days spent camping in the intimacy of nature, a feeling of merit came over me. A just reward.',
     id: 'northern-lights',
     events: [
@@ -63,7 +63,7 @@ export default [
     background: '/images/selections/2.jpg',
     description: 'Picture of Gloppedalsura',
     virtual: '/images/stories/rl3.jpg',
-    audio: '/audio/g1.mp3',
+    audio: '/audio/g1.wav',
     text: 'Hundreds of thousands of stones the size of a car. I am speechless, impressed by this surreal landscape that surrounds me.',
     id: 'gloppedalsura',
     events: [
@@ -90,7 +90,7 @@ export default [
     background: '/images/selections/1.jpg',
     description: 'Picture of Byrkjedalstunet',
     virtual: '/images/stories/l.jpg',
-    audio: '/audio/by1.mp3',
+    audio: '/audio/by1.wav',
     text: "It's such a unique place that I went to the trouble of returning a second time. It's one of those rare places that you don't expect and leaves you with a sweet memory.",
     id: 'byrkjedalstunets',
     events: [
@@ -117,7 +117,7 @@ export default [
     background: '/images/selections/4.jpg',
     description: 'Picture of Fjoloy Fortress',
     virtual: '/images/stories/bubu.jpg',
-    audio: '/audio/b1.mp3',
+    audio: '/audio/b1.wav',
     text: 'There was a mysterious feeling behind this landscape, this horizon without a destination. I am at the end of the world.',
     id: 'fjoloy-fortress',
     events: [
@@ -144,7 +144,7 @@ export default [
     background: '/images/selections/7.jpg',
     description: 'Picture of Tromsdalen Church',
     virtual: '/images/stories/c1.jpg',
-    audio: '/audio/c1.mp3',
+    audio: '/audio/c1.wav',
     text: 'All gathered for different reasons in a common place in the middle of the night. It is a communal warmth. Peaceful.',
     id: 'tromsdalen-church',
     events: [
