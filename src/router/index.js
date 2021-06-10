@@ -3,27 +3,27 @@ import { createRouter, createWebHistory } from 'vue-router'
 const routes = [
   {
     path: '/',
-    name: 'Intro',
+    name: 'intro',
     component: () => import('../views/intro.vue')
   },
   {
     path: '/intro2',
-    name: 'Intro2',
+    name: 'intro2',
     component: () => import('../views/intro2.vue')
   },
   {
     path: '/home',
-    name: 'Home',
+    name: 'home',
     component: () => import('../views/home.vue')
   },
   {
     path: '/selection',
-    name: 'Selection',
+    name: 'selection',
     component: () => import('../views/selection.vue')
   },
   {
     path: '/story/:id',
-    name: 'Story',
+    name: 'story',
     component: () => import('../views/story.vue')
   }
 ]
