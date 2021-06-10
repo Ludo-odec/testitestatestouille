@@ -2,7 +2,7 @@
   <div class="section section--stories">
     <div v-if="story" class="carousel">
       <story-navbar />
-      <router-link :to="{name : 'stories', params: {id: story.id} }" class="carousel__slides carousel__slides--horizontal">
+      <router-link :to="{ name: 'stories', params: {id: story.id} }" class="carousel__slides carousel__slides--horizontal">
         <img class="background background--stories" :src="story.background" :alt="story.description">
         <div class="stories">
           <h4 class="stories__inline">
