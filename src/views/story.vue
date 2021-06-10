@@ -41,7 +41,7 @@ import ScrollTrigger from 'gsap/ScrollTrigger'
 gsap.registerPlugin(ScrollTrigger)
 
 export default {
-  name: 'Story',
+  name: 'Stories',
   components: {
     StoryNavbar,
     FooterNavbar,
