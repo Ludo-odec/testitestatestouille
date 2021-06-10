@@ -232,3 +232,11 @@ canvas{
     background: inherit;
     border-radius: 8px;
 }
+
+@media screen and (max-width: 1024px) {
+    .section{
+        &--stories, --intro, --brief, --home, --selection{
+            display: none;
+        }
+    }
+}
