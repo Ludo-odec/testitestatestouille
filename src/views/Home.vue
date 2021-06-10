@@ -47,7 +47,7 @@ import 'swiper/components/navigation/navigation.scss'
 SwiperCore.use([Navigation])
 
 export default {
-  name: 'home',
+  name: 'Home',
   components: {
     HeaderNavbar,
     Swiper,

@@ -30,7 +30,7 @@
 <script>
 
 export default {
-  name: 'brief'
+  name: 'Brief'
 }
 </script>
 
