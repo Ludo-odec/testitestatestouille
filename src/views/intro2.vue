@@ -21,7 +21,7 @@
     </article>
     <router-link to="/Home" class="skip">
       <button class="cta cta--intro2" @click="letsGo">
-        Skip
+        Let's go
       </button>
     </router-link>
   </div>
@@ -49,7 +49,7 @@ export default {
     font-weight: 100;
     width: 600px;
     &::after{
-        content: "— Ludovic Decuyper";
+        content: "— L.D.";
         cursor: text;
         float: right;
     }
@@ -59,6 +59,11 @@ export default {
     position: absolute;
     bottom: 40px;
     font-size: 25.89px;
+}
+
+.cta--intro2{
+  border: 0.5px solid #fff;
+  border-radius: 999px;
 }
 
 </style>

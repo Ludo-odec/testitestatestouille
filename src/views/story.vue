@@ -21,8 +21,8 @@
             </li>
           </ul>
         </div>
-        <footerNavbar :story="story" @open-fullscreen="openFullscreen" />
-        <audio class="myMem1" :src="story.audio" />
+        <footerNavbar :story="story" />
+        <audio class="myMem" :src="story.audio" />
       </router-link>
     </div>
   </div>
@@ -59,31 +59,7 @@ export default {
       router.replace('/')
     }
 
-    const openFullscreen = () => {
-      const myMem1 = document.querySelector('.myMem1')
-      myMem1.volume = 0.8
-
-      const canvaRadius = document.querySelector('.myCanvas canvas')
-      if (!document.fullscreenElement) {
-        canvaRadius.style.borderRadius = '0px'
-        myMem1.play()
-        canvaRadius.requestFullscreen().catch(err => {
-          alert(`Error attempting to enable full-screen mode: ${err.message} (${err.name})`)
-        })
-      } else {
-        document.exitFullscreen()
-        canvaRadius.style.borderRadius = '999px'
-        myMem1.paused ? myMem1.play() : myMem1.pause()
-        myMem1.currentTime = 0
-      }
-    }
-
     onMounted(() => {
-      document.addEventListener('fullscreenchange', (e) => {
-        if (!document.fullscreenElement) {
-          document.querySelector('.myCanvas canvas').style.borderRadius = '999px'
-        }
-      })
       // gsap
       const sections = gsap.utils.toArray('.stories__inline')
       let maxWidth = 0
@@ -100,17 +76,15 @@ export default {
         x: () => `-${maxWidth - window.innerWidth}`,
         ease: 'none',
         scrollTrigger: {
-          trigger: '.section--stories',
+          trigger: '.carousel',
           pin: true,
           scrub: 1,
           end: () => `+=${maxWidth}`
-          // invalidateOnRefresh: true
         }
       })
     })
 
     return {
-      openFullscreen,
       story
     }
   }

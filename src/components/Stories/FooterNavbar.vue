@@ -3,7 +3,7 @@
     <a class="footer__nav footer__nav--north" target="_blank" :href="story.map">
       {{ story.north }}
     </a>
-    <button ref="btnBig" class="blurred btn--big" @click="handleOpenFullscreen">
+    <button ref="btnBig" class="blurred btn--big" @click="myMemory">
       Story
     </button>
     <a class="footer__nav footer__nav--east" target="_blank" :href="story.map">
@@ -23,13 +23,16 @@ export default {
       required: true
     }
   },
-  emits: ['open-fullscreen'],
-  setup (props, { emit }) {
-    const handleOpenFullscreen = () => {
-      emit('open-fullscreen')
+  setup () {
+    const myMemory = () => {
+      const myMem = document.querySelector('.myMem')
+      myMem.play()
+
+      const myAudio = document.querySelector('.myAudio')
+      myAudio.pause()
     }
     return {
-      handleOpenFullscreen
+      myMemory
     }
   },
   data () {

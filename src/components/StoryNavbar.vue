@@ -31,18 +31,18 @@
 export default {
   setup () {
     const mySound = () => {
-      const myMem1 = document.querySelector('.myMem1')
-      myMem1.pause()
-      myMem1.currentTime = 0
+      const myMem = document.querySelector('.myMem')
+      myMem.pause()
+      myMem.currentTime = 0
 
       const myAudio = document.querySelector('.myAudio')
       myAudio.volume = 0.1
       return myAudio.paused ? myAudio.play() : myAudio.pause()
     }
     const close = () => {
-      const myMem1 = document.querySelector('.myMem1')
-      myMem1.pause()
-      myMem1.currentTime = 0
+      const myMem = document.querySelector('.myMem')
+      myMem.pause()
+      myMem.currentTime = 0
     }
     return {
       mySound,
