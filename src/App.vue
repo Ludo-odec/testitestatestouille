@@ -4,7 +4,11 @@
       <component :is="Component" />
     </transition>
   </router-view>
-  <audio class="myAudio" src="./audio/a1.mp3" loop />
+  <audio
+    class="myAudio"
+    src="./audio/a1.mp3"
+    loop
+  />
 </template>
 
 <script>

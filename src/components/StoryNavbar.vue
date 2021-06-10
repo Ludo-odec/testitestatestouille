@@ -36,8 +36,20 @@ export default {
       myMem.currentTime = 0
 
       const myAudio = document.querySelector('.myAudio')
+      const myKeyframes = document.querySelectorAll('.header__nav--sound span')
       myAudio.volume = 0.1
-      return myAudio.paused ? myAudio.play() : myAudio.pause()
+      if (!myAudio.paused) {
+        myAudio.pause()
+        myKeyframes.forEach((key) => {
+          key.style.animation = 'none'
+        })
+      } else {
+        myAudio.play()
+        myKeyframes.forEach((key) => {
+          key.style.animation = 'pulse 1s linear infinite'
+          key.style.animationDelay = Math.random() + 's'
+        })
+      }
     }
     const close = () => {
       const myMem = document.querySelector('.myMem')

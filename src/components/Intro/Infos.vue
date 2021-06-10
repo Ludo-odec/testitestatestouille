@@ -7,7 +7,7 @@
         </strong>
       </h1>
       <router-link to="/Intro2">
-        <button class="cta cta--intro" @click="letsGo">
+        <button class="cta cta--intro" @click="explore">
           <svg viewBox="0 0 100 100" fill="none">
             <circle
               class="circle"
@@ -25,24 +25,6 @@
     </div>
   </div>
 </template>
-
-<script>
-
-export default {
-  name: 'Infos',
-  setup () {
-    const letsGo = () => {
-      const myAudio = document.querySelector('.myAudio')
-      myAudio.volume = 0.1
-      return myAudio.paused ? myAudio.play() : myAudio.pause()
-    }
-    return {
-      letsGo
-    }
-  }
-}
-
-</script>
 
 <style lang="scss">
 .infos{
