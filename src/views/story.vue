@@ -1,7 +1,7 @@
 <template>
   <div class="section section--stories">
+    <story-navbar />
     <div v-if="story" class="carousel">
-      <story-navbar />
       <router-link :to="{name : 'Story', params: {id: story.id} }" class="carousel__slides carousel__slides--horizontal">
         <img class="background background--stories" :src="story.background" :alt="story.description">
         <div class="stories">
@@ -100,10 +100,11 @@ export default {
         x: () => `-${maxWidth - window.innerWidth}`,
         ease: 'none',
         scrollTrigger: {
-          trigger: '.carousel',
+          trigger: '.section--stories',
           pin: true,
           scrub: 1,
           end: () => `+=${maxWidth}`
+          // invalidateOnRefresh: true
         }
       })
     })
